@@ -1,6 +1,7 @@
 package ru.multicon.demodi.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import ru.multicon.demodi.services.GreetingService;
 
@@ -16,7 +17,7 @@ public class ConstructorInjectedController {
     }
 
     @Autowired
-    public ConstructorInjectedController(GreetingService greetingService) {
+    public ConstructorInjectedController(@Qualifier("constructorGreetingService") GreetingService greetingService) {
         this.greetingService = greetingService;
     }
 }
