@@ -1,4 +1,3 @@
-
 package ru.multicon.demodi.controllers;
 
 import org.springframework.stereotype.Controller;
