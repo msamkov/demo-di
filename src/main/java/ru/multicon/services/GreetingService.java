@@ -1,4 +1,4 @@
-package ru.multicon.demodi.services;
+package ru.multicon.services;
 
 /**
  * Created by msamkov on 17.05.2018

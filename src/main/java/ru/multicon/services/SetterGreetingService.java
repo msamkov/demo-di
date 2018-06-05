@@ -1,4 +1,4 @@
-package ru.multicon.demodi.services;
+package ru.multicon.services;
 
 import org.springframework.stereotype.Service;
 

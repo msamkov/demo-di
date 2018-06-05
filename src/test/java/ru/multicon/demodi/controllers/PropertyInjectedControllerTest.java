@@ -2,7 +2,7 @@ package ru.multicon.demodi.controllers;
 
 import org.junit.Before;
 import org.junit.Test;
-import ru.multicon.demodi.services.GreetingServiceImpl;
+import ru.multicon.services.GreetingServiceImpl;
 
 import static org.junit.Assert.*;
 
