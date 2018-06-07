@@ -8,6 +8,7 @@ import ru.multicon.demodi.controllers.MyController;
 import ru.multicon.demodi.controllers.PropertyInjectedController;
 import ru.multicon.demodi.controllers.SetterInjectedController;
 import ru.multicon.demodi.datasource.FakeDataSource;
+import ru.multicon.demodi.datasource.FakeJmsBroker;
 
 /**
  *  Created by msamkov on 04.05.2018
@@ -25,6 +26,13 @@ public class DemoDiApplication {
 		System.out.println(fakeDataSource.getUser());
 		System.out.println(fakeDataSource.getPassword());
 		System.out.println(fakeDataSource.getUrl());
+
+
+		FakeJmsBroker fakeJmsBroker = (FakeJmsBroker) ctx.getBean(FakeJmsBroker.class);
+
+		System.out.println(fakeJmsBroker.getUser());
+		System.out.println(fakeJmsBroker.getPassword());
+		System.out.println(fakeJmsBroker.getUrl());
 
 	}
 }

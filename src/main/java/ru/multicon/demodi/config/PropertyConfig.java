@@ -1,43 +1,59 @@
 package ru.multicon.demodi.config;
 
-import org.springframework.core.env.Environment;
-import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 import ru.multicon.demodi.datasource.FakeDataSource;
+import ru.multicon.demodi.datasource.FakeJmsBroker;
 
 /**
  * Created by msamkov on 07.06.2018
  */
 @Configuration
-@PropertySource("classpath:datasource.properties")
+@PropertySource({"classpath:datasource.properties", "classpath:jms.properties"})
 public class PropertyConfig {
 
-    @Autowired
-    Environment env;
-
-    @Value("${ru.multicon.username}")
+    @Value("${postgres.username}")
     String user;
 
-    @Value("${ru.multicon,password}")
+    @Value("${postgres.password}")
     String password;
 
-    @Value("${ru.multicon.dburl}")
+    @Value("${postgres.dburl}")
     String url;
+
+
+    @Value("${jms.username}")
+    String jmsUser;
+
+    @Value("${jms.password}")
+    String jmsPpassword;
+
+    @Value("${jms.dburl}")
+    String jmsUrl;
+
 
     @Bean
     public FakeDataSource fakeDataSource() {
         FakeDataSource fakeDataSource = new FakeDataSource();
-        //fakeDataSource.setUser(user);
-        fakeDataSource.setUser(env.getProperty("RU_MULTICON_USER"));
+        fakeDataSource.setUser(user);
         fakeDataSource.setPassword(password);
         fakeDataSource.setUrl(url);
         return fakeDataSource;
     }
 
+
+    @Bean
+    public FakeJmsBroker fakeJmsBroker() {
+        FakeJmsBroker fakeJmsBroker = new FakeJmsBroker();
+        fakeJmsBroker.setUser(jmsUser);
+        fakeJmsBroker.setPassword(jmsPpassword);
+        fakeJmsBroker.setUrl(jmsUrl);
+        return fakeJmsBroker;
+    }
 
 
     @Bean

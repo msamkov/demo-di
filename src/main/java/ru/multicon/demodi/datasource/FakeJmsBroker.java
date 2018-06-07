@@ -3,7 +3,7 @@ package ru.multicon.demodi.datasource;
 /**
  * Created by msamkov on 07.06.2018
  */
-public class FakeDataSource {
+public class FakeJmsBroker {
     private String user;
     private String password;
     private String url;
