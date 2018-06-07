@@ -4,7 +4,6 @@ package ru.multicon.demodi.config;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 import ru.multicon.demodi.datasource.FakeDataSource;
 import ru.multicon.demodi.datasource.FakeJmsBroker;
@@ -13,7 +12,6 @@ import ru.multicon.demodi.datasource.FakeJmsBroker;
  * Created by msamkov on 07.06.2018
  */
 @Configuration
-@PropertySource({"classpath:datasource.properties", "classpath:jms.properties"})
 public class PropertyConfig {
 
     @Value("${postgres.username}")
@@ -54,16 +52,5 @@ public class PropertyConfig {
         fakeJmsBroker.setUrl(jmsUrl);
         return fakeJmsBroker;
     }
-
-
-    @Bean
-    public static PropertySourcesPlaceholderConfigurer properties(){
-        PropertySourcesPlaceholderConfigurer propertySourcesPlaceholderConfigurer = new PropertySourcesPlaceholderConfigurer();
-        return propertySourcesPlaceholderConfigurer;
-
-    }
-
-
-
 
 }
