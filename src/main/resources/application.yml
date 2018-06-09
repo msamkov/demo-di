@@ -1,0 +1,4 @@
+postgres:
+    username: Max
+    password: somepass
+    dburl: SomeUrl
